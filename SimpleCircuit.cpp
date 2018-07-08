@@ -29,7 +29,7 @@ class data {
 			else da.value = 1;
 			return da;
 		}
-		data operator-(const data& d) { //NOT
+		data operator-(const data& d) { //XOR
 			data da;
 			if(d.value == value) da.value = 0;
 			else da.value = 1;
@@ -43,7 +43,7 @@ class gate:public data {
 		string name;
 	public:
 		void setIn(int in1,int in2) {input1 = in1;input2 = in2;}
-		bool calculate(data i1,data i2) {
+		void calculate(data i1,data i2) {
 			if(name == "AND") {
 				output = AND(i1,i2);
 			}
@@ -180,7 +180,7 @@ int main() {
 			int i2 = g[i].getInt2();
 			if(d[i].getValue()!=-1) continue;
 			else {
-				cout<<i<<"!"; 
+//				cout<<i<<"!"; 
 				if(i1>99&&i2>99) {
 					data d1;
 					data d2;
